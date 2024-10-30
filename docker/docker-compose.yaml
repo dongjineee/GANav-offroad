@@ -1,0 +1,15 @@
+services:
+  ga_nav:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: dev
+    image: ga_nav:00
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    volumes:
+      - ../../GANav-offroad:/root/catkin_ws/src/GANav-offroad
+    environment:
+      - ROS_IP=127.0.0.1
+    command: "/bin/bash"
