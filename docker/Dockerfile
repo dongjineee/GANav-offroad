@@ -34,6 +34,7 @@ RUN apt update \
         python3-wstool \
         python3-catkin-tools \
         python3-osrf-pycommon \
+    && apt install python3-tk \
     && rm -f "/etc/ros/rosdep/sources.list.d/20-default.list" \
     && rosdep init \
     && rosdep update \
@@ -50,8 +51,9 @@ RUN apt-get update && apt-get install -y python3-venv \
     && pip install --upgrade pip \
     && pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113 \
     && pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
-    && pip install mmengine
-    && pip install einops prettytable
+    && pip install mmengine \
+    && pip install einops prettytable \
+
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
