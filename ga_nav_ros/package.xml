@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ga_nav</name>
+  <version>0.0.1</version>
+  <description>The image group segmentation node for ROS</description>
+
+  <maintainer email="d22g66@naver.com">dongjinecho</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <!-- ROS Dependencies -->
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+
+  <!-- System Dependencies -->
+  <exec_depend>python3</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <!-- External Dependencies for mmsegmentation and torch -->
+  <exec_depend>torch</exec_depend>
+  <exec_depend>mmcv</exec_depend>
+  <exec_depend>mmsegmentation</exec_depend>
+
+  <export>
+  </export>
+</package>

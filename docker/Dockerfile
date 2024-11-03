@@ -53,7 +53,6 @@ RUN apt-get update && apt-get install -y python3-venv \
     && pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
     && pip install mmengine \
     && pip install einops prettytable \
-
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

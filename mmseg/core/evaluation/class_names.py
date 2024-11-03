@@ -1,6 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import mmcv
 
+def lake_group_classes():
+    """lake group class names for external use."""
+    return [ "background", "L1 (Smooth)", "L2 (Rough)", "L3 (Bumpy)", "non-Nav (Forbidden)", "obstacle"]
+
 def rellis_group_classes():
     """rellis group class names for external use."""
     return [ "background", "L1 (Smooth)", "L2 (Rough)", "L3 (Bumpy)", "non-Nav (Forbidden)", "obstacle"]
@@ -12,6 +16,13 @@ def rugd_group_classes():
 def rugd_group4_classes():
     """rugd group class names for external use."""
     return [ "background", "L1 (Smooth)", "non-Nav (Forbidden)", "obstacle"]
+
+def lake_classes():
+    """lake class names for external use."""
+    return [
+        "leaf", "sky", "low grass", "telephone pole", "grass", "water",
+        "telephone pole wire", "bush", "tree trunk"
+    ]
 
 def rellis_classes():
     """rellis class names for external use."""
@@ -80,6 +91,12 @@ def voc_classes():
         'tvmonitor'
     ]
 
+def lake_palette():
+    """lake palette for external use."""
+    return [[255, 255, 0], [127, 127, 127], [97, 127, 56],
+           [255, 153, 153], [0, 255, 0], [33, 112, 178],
+           [61, 59, 112], [0, 0, 255], [255, 0, 255]]
+
 def rellis_palette():
     """rellis palette for external use."""
     return [[0, 0, 0], [108, 64, 20], [0, 102, 0], [0, 255, 0], [0, 153, 153], 
@@ -87,7 +104,10 @@ def rellis_palette():
             [255, 0, 0], [102, 0, 0], [204, 153, 255], [102, 0, 204], [255, 153, 204], 
             [170, 170, 170], [41, 121, 255], [134, 255, 239], [99, 66, 34], [110, 22, 138]]
 
-
+def lake_group_palette():
+    """lake group palette for external use."""
+    return [[ 0, 0, 0 ], [ 0,128,0 ],[ 255, 255, 0 ],[ 255, 128, 0 ],
+            [ 255, 0, 0 ],[  0, 0, 128] ]
 
 def rugd_group_palette():
     """rugd group palette for external use."""
@@ -298,6 +318,7 @@ def vaihingen_palette():
 
 
 dataset_aliases = {
+    'lake_group' : ['lake_group'], #sim_data
     'cityscapes': ['cityscapes'],
     'ade': ['ade', 'ade20k'],
     'voc': ['voc', 'pascal_voc', 'voc12', 'voc12aug'],
@@ -348,3 +369,5 @@ def get_palette(dataset):
     else:
         raise TypeError(f'dataset must a str, but got {type(dataset)}')
     return labels
+
+

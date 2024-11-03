@@ -1,0 +1,16 @@
+<launch>
+    <!-- Path to the config file -->
+    <arg name="config_path" default="$(find ga_nav)/config/inference.yaml"/>
+    <arg name="ga_nav_param" default="$(find ga_nav)/../configs/ours/ganav_group6_lake.py"/>
+    <arg name="checkpoint" default="$(find ga_nav)/../work_dirs/ganav_group6_lake/latest.pth"/>
+
+    <!-- Load parameters into the ROS parameter server -->
+    <rosparam command="load" file="$(arg config_path)" ns="inference_ros"/>
+
+    <!-- Launch the segmentation node -->
+    <node name="inference_ros" pkg="ga_nav" type="inference_ros.py" output="screen">
+        <param name="reload_default_params" value="False" />
+        <param name="config_path" value="$(arg ga_nav_param)"/>
+        <param name="checkpoint" value="$(arg checkpoint)"/>
+    </node>
+</launch>

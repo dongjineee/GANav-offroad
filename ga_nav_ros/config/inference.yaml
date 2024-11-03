@@ -1,0 +1,5 @@
+palette: 'lake_group'
+device: 'cuda:0'
+resize_width: 1280
+resize_height: 720
+opacity: 0.5
